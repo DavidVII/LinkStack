@@ -9,4 +9,20 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Linkstack::Application.config.secret_key_base = 'de17ea97380d8d8fb0b72c351aceaf67a9a02b73c8d5e63d61f5912a717b54a96c002c32ae0f9784f745ce5af03da7b3c56f90b9716767072ffffbdd5c6c72ce'
+
+require 'securerandom'
+
+def secure_token
+  token_file = Rails.root.join('.secret')
+  if File.exist?(token_file)
+    # Use the existing token.
+    File.read(token_file).chomp
+  else
+    # Generate a new token and store it in token_file.
+    token = SecureRandom.hex(64)
+    File.write(token_file, token)
+    token
+  end
+end
+
+Linkstack::Application.config.secret_key_base = secure_token
