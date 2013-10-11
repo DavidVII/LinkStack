@@ -15,9 +15,8 @@
 /log/*.log
 /tmp
 
-# Ignore Vim Files
+/.sass-cache/
 *.swp
 *.swo
-
-# Others
 .secret
+.DS_Store
