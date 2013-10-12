@@ -8,8 +8,8 @@ describe "Pages" do
 
     it { should have_title('LinkStack') }
     it { should have_content('LinkStack') }
-    it { should have_link('Login', href: '#') }
-    it { should have_link('Sign up today', href: '#') }
+    it { should have_link('Login', href: new_user_session_path) }
+    it { should have_link('Sign up today', href: new_user_registration_path) }
     it { should have_link('LinkStack', href: root_path) }
     it { should have_link('About', href: about_path) }
   end
