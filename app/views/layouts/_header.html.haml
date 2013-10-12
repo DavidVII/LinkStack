@@ -1,0 +1,15 @@
+.navbar.navbar-default.navbar-fixed-top
+  .container
+    .navbar-header
+      %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", type: "button"}
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      
+      = link_to 'LinkStack', '#', class: 'navbar-brand'
+
+    .collapse.navbar-collapse
+      %ul.nav.navbar-nav
+        %li=link_to 'Login', '#'
+
+
