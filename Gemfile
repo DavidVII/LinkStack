@@ -12,8 +12,8 @@ gem 'jbuilder', '~> 1.2'
 
 # App Gems
 gem 'pg'
-gem 'bootstrap-sass', '2.3.2.0'
 gem 'haml-rails'
+gem 'anjlab-bootstrap-rails', '~> 3.0.0', :require => 'bootstrap-rails'
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.14.0'
