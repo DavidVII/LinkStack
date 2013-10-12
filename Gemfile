@@ -14,6 +14,7 @@ gem 'jbuilder', '~> 1.2'
 gem 'pg'
 gem 'haml-rails'
 gem 'anjlab-bootstrap-rails', '~> 3.0.0', :require => 'bootstrap-rails'
+gem "figaro"
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.14.0'
