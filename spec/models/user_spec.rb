@@ -28,8 +28,79 @@ describe User do
 
   it { should be_valid }
 
-  describe "when name is not present" do
+  describe "when username is not present" do
     before { @user.username = " " }
+    it { should_not be_valid }
+  end
+
+  describe "when a username is too short" do
+    before { @user.username = "a" }
+    it { should_not be_valid }
+  end
+  
+  describe "when a username is too long" do
+    before { @user.username = "a" * 51 }
+    it { should_not be_valid }
+  end
+
+  describe "when a username is already taken" do
+    before do
+      user_with_the_same_username = @user.dup
+      user_with_the_same_username.email = "different@email.com"
+      user_with_the_same_username.username = @user.username.upcase
+      user_with_the_same_username.save
+    end
+
+    it { should_not be_valid }
+  end
+
+  describe "when an email is not present" do
+    before { @user.email = " " }
+    it { should_not be_valid }
+  end
+
+  describe "when email format is invalid" do
+    it "should be invalid" do
+      addresses = %w[ user@foo,com user_at_foo.org example.user@foo. foo2example.com example@somecom ]
+      addresses.each do |invalid_address|
+        @user.email = invalid_address
+        @user.should_not be_valid
+      end
+    end
+  end
+
+  describe "when email format is valid" do
+    it "should be valid" do
+      addresses = %w[ user@foo.COM A_US-ER@f.b.org first.lst@foo.jp a+b@baz.cn ]
+      addresses.each do |valid_address|
+        @user.email = valid_address
+        @user.should be_valid
+      end
+    end
+  end
+
+  describe "when email address is already taken" do
+    before do
+      user_with_the_same_email = @user.dup
+      user_with_the_same_email.email = @user.email.upcase
+      user_with_the_same_email.save
+    end
+
+    it { should_not be_valid }
+  end
+
+  describe "when the password is not preset" do
+    before { @user.password = @user.password_confirmation = " " }
+    it { should_not be_valid }
+  end
+
+  describe "when the password confirmation doesn't match" do
+    before { @user.password_confirmation = "mismatch" }
+    it { should_not be_valid }
+  end
+
+  describe "when the password is too short" do
+    before { @user.password = @user.password_confirmation = "a" * 6 }
     it { should_not be_valid }
   end
 end
