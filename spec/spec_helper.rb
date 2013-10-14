@@ -4,6 +4,11 @@ require 'spork'
 
 Spork.prefork do
   ENV["RAILS_ENV"] ||= 'test'
+
+  # Needed to make spork place nicely with Devise model
+  require "rails/application"
+  Spork.trap_method(Rails::Application::RoutesReloader, :reload!)
+
   require File.expand_path("../../config/environment", __FILE__)
   require 'rspec/rails'
   require 'email_spec'
