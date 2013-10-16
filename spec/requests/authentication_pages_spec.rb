@@ -10,10 +10,10 @@ describe "AuthenticationPages" do
       it "Creates an account" do
 
         expect {
-          fill_in 'Username', with: 'ExampleUser'
-          fill_in 'Email', with: 'person@example.com'
-          fill_in 'Password', with: 'foobar1'
-          fill_in 'Password confirmation', with: 'foobar1'
+          fill_in 'user_username', with: 'ExampleUser'
+          fill_in 'user_email', with: 'person@example.com'
+          fill_in 'user_password', with: 'foobar1'
+          fill_in 'user_password_confirmation', with: 'foobar1'
           click_button 'Sign up'
         }.to change(User, :count).by(1)
 
