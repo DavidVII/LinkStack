@@ -43,6 +43,11 @@ describe User do
     it { should_not be_valid }
   end
 
+  describe "when a username has a space" do
+    before { @user.username = 'Username Space' }
+    it { should_not be_valid }
+  end
+
   describe "when a username is already taken" do
     before do
       user_with_the_same_username = @user.dup

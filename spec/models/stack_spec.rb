@@ -1,8 +1,11 @@
 require 'spec_helper'
 
 describe Stack do
+
+  let(:user) { FactoryGirl.create(:user) }
+
   before do
-    @stack = Stack.new(
+    @stack = user.stacks.build(
       name: "Stack Name",
       description: "Lorem Ipspum"
     )
@@ -12,6 +15,8 @@ describe Stack do
 
   it { should respond_to(:name) }
   it { should respond_to(:description) }
+  it { should respond_to(:user_id) }
+  its(:user) { should == user }
 
   it { should be_valid }
 
@@ -25,7 +30,8 @@ describe Stack do
     it { should be_valid }
   end
 
-  describe 'aassociations' do
-    it 'should have user'
+  describe 'when a user is not present' do
+    before { @stack.user = nil }
+    it { should_not be_valid }
   end
 end
