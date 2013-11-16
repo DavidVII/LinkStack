@@ -1,8 +1,13 @@
-%h1 Create a new Stack
+.container
+  .row
+    .col-md-4.col-md-offset-4
+      %h1 Create a new Stack
 
-= form_for @stack do |f|
-  = f.label :name
-  = f.text_field :name
-  = f.label :description
-  = f.text_area :description
-  = f.submit 'Create'
+      = form_for @stack do |f|
+        .form-group
+          = f.label :name
+          = f.text_field :name, class: 'form-control'
+        .form-group
+          = f.label :description
+          = f.text_area :description, class: 'form-control'
+        = f.submit 'Create', class: 'btn btn-default'

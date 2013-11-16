@@ -29,4 +29,15 @@ describe 'StackPages' do
       end
     end
   end
+
+  describe 'create new stack' do
+    before do
+      visit new_stack_path
+      fill_in 'stack_name', with: ''
+      fill_in 'stack_description', with: ''
+      click_button 'Create'
+    end
+
+    it { should have_content('Error') }
+  end
 end

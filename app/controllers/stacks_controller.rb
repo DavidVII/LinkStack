@@ -11,7 +11,7 @@ class StacksController < ApplicationController
       flash[:success] = "New stack created"
       redirect_to @stack
     else
-      render 'pages/index'
+      render 'new'
     end
   end
 
