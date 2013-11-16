@@ -7,6 +7,11 @@ describe 'StackPages' do
 
   before { sign_in user }
 
+  describe 'home page after user is signed in' do
+    before { visit root_path }
+    it { should have_link('New Stack', href: new_stack_path) }
+  end
+
   describe 'new stack page' do
     before { visit new_stack_path }
 
