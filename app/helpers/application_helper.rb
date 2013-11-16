@@ -10,15 +10,22 @@ module ApplicationHelper
     end
   end
 
+  def body_classes
+    %W(
+      controller-#{controller.controller_name}
+      action-#{controller.action_name}
+      ).join(" ")
+  end
+
   # Get devise forms on homepage
   def resource_name
     :user
   end
- 
+
   def resource
     @resource ||= User.new
   end
- 
+
   def devise_mapping
     @devise_mapping ||= Devise.mappings[:user]
   end
