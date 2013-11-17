@@ -30,7 +30,7 @@ describe 'StackPages' do
     end
   end
 
-  describe 'create new stack' do
+  describe 'new stack form with empty fields' do
     before do
       visit new_stack_path
       fill_in 'stack_name', with: ''
@@ -38,6 +38,6 @@ describe 'StackPages' do
       click_button 'Create'
     end
 
-    it { should have_content('Error') }
+    it { should have_content('error') }
   end
 end
