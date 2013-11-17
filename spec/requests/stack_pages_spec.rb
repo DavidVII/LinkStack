@@ -12,6 +12,11 @@ describe 'StackPages' do
     it { should have_link('New Stack', href: new_stack_path) }
   end
 
+  describe 'stacks index page' do
+    before { visit stacks_path }
+    it { should have_content('Your Stacks') }
+  end
+
   describe 'new stack page' do
     before { visit new_stack_path }
 

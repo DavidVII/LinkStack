@@ -1,0 +1,6 @@
+.container
+  %h1 Your Stacks
+  - @stacks.each do |s|
+    .stack
+      %p= s.name
+      %p= s.description
