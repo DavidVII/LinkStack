@@ -2,7 +2,7 @@ class StacksController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @stacks = current_user.stacks.all
+    @stacks = current_user.stacks
   end
 
   def new
