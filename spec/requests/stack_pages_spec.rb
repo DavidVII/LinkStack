@@ -10,6 +10,7 @@ describe 'StackPages' do
   describe 'home page after user is signed in' do
     before { visit root_path }
     it { should have_link('New Stack', href: new_stack_path) }
+    it { should have_link('My Stacks', href: stacks_path) }
   end
 
   describe 'stacks index page' do
