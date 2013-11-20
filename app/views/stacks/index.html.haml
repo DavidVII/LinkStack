@@ -1,6 +1,8 @@
 .container
   %h1 Your Stacks
-  - @stacks.each do |s|
-    .stack
-      %p= s.name
-      %p= s.description
+  .row
+    - @stacks.each do |s|
+      .col-md-3
+        = link_to stack_path(s), class: 'stack' do
+          %h3= s.name
+          %p= s.description

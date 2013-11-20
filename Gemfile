@@ -16,6 +16,7 @@ gem 'haml-rails'
 gem 'anjlab-bootstrap-rails', '~> 3.0.0', :require => 'bootstrap-rails'
 gem 'figaro'
 gem 'devise'
+gem 'bourbon'
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.14.0'

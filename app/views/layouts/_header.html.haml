@@ -8,7 +8,9 @@
 
       = link_to 'LinkStack', root_path, class: 'navbar-brand'
       - if current_user.present?
-        = link_to 'New Stack', new_stack_path, class: 'btn btn-primary navbar-btn pull-left'
+        .stack-actions.pull-left
+          = link_to 'My Stacks', stacks_path, class: 'btn btn-success navbar-btn'
+          = link_to 'New Stack', new_stack_path, class: 'btn btn-primary navbar-btn'
 
     .collapse.navbar-collapse
       %ul.nav.navbar-nav.pull-right
