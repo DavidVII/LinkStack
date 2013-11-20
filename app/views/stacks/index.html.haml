@@ -1,8 +1,9 @@
 .container
   %h1 Your Stacks
   .row
-    - @stacks.each do |s|
+    - @stacks.each do |stack|
       .col-md-3
-        = link_to stack_path(s), class: 'stack' do
-          %h3= s.name
-          %p= s.description
+        .stack
+          %h3= link_to stack.name, stack_path(stack)
+          %p= stack.description
+          = link_to 'Delete', stack_path(stack), method: :delete

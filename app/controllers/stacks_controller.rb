@@ -5,6 +5,10 @@ class StacksController < ApplicationController
     @stacks = current_user.stacks
   end
 
+  def show
+    @stack = Stack.find(params[:id])
+  end
+
   def new
     @stack = Stack.new
   end
@@ -19,8 +23,10 @@ class StacksController < ApplicationController
     end
   end
 
-  def show
-    @stack = Stack.find(params[:id])
+  def destroy
+    Stack.find(params[:id]).destroy
+    flash[:success] = 'Your stack has been deleted.'
+    redirect_to stacks_path
   end
 
   private

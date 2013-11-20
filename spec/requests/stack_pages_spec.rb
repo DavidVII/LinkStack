@@ -46,4 +46,17 @@ describe 'StackPages' do
 
     it { should have_content('error') }
   end
+
+  describe 'stack descruction' do
+    before { FactoryGirl.create(:stack, user: user) }
+
+    describe 'as the correct user' do
+      before { visit stacks_path }
+
+      it 'should delete a stack' do
+        expect { click_link 'Delete' }.to change(Stack, :count).by(-1)
+        expect(page).to have_content('deleted')
+      end
+    end
+  end
 end
