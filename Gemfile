@@ -37,6 +37,7 @@ group :test do
   gem 'database_cleaner', '~> 1.2.0'
   gem 'factory_girl_rails', '4.2.1'
   gem 'email_spec'
+  gem 'simplecov', :require => false
 end
 
 group :production do
