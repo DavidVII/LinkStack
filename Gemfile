@@ -16,6 +16,8 @@ gem 'haml-rails'
 gem 'anjlab-bootstrap-rails', '~> 3.0.0', :require => 'bootstrap-rails'
 gem 'figaro'
 gem 'devise'
+gem 'omniauth-github'
+gem 'figaro'
 gem 'bourbon'
 
 group :development, :test do

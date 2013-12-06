@@ -20,3 +20,4 @@
           %li=link_to 'Sign Out', destroy_user_session_path, method: :delete
         - else
           %li=link_to 'Login', new_user_session_path
+          %li=link_to 'Login with GitHub', user_omniauth_authorize_path(:github)
