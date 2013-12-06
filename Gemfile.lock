@@ -32,6 +32,11 @@ GEM
     arel (4.0.1)
     atomic (1.1.14)
     bcrypt-ruby (3.1.2)
+    better_errors (1.0.1)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
+    binding_of_caller (0.7.2)
+      debug_inspector (>= 0.0.1)
     bourbon (3.1.8)
       sass (>= 3.2.0)
       thor
@@ -55,6 +60,7 @@ GEM
       execjs
     coffee-script-source (1.6.3)
     database_cleaner (1.2.0)
+    debug_inspector (0.0.2)
     devise (3.2.1)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -229,6 +235,8 @@ PLATFORMS
 
 DEPENDENCIES
   anjlab-bootstrap-rails (~> 3.0.0)
+  better_errors
+  binding_of_caller
   bourbon
   capybara (~> 2.1.0)
   childprocess (~> 0.3.9)
