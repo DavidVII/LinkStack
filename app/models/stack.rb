@@ -3,4 +3,5 @@ class Stack < ActiveRecord::Base
   validates :user_id, presence: true
 
   belongs_to :user
+  has_many :links, dependent: :destroy
 end

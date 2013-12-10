@@ -18,6 +18,8 @@ describe Stack do
   it { should respond_to(:user_id) }
   its(:user) { should == user }
 
+  it { should have_many(:links).dependent(:destroy) }
+
   it { should be_valid }
 
   describe 'when a name is not present' do

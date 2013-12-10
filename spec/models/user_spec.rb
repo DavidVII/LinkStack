@@ -26,6 +26,9 @@ describe User do
   it { should respond_to(:current_sign_in_ip) }
   it { should respond_to(:last_sign_in_ip) }
 
+  it { should have_many(:stacks).dependent(:destroy) }
+  it { should have_many(:links).dependent(:destroy) }
+
   it { should be_valid }
 
   describe "when username is not present" do
