@@ -3,3 +3,14 @@
   %p= @stack.description
 
   %h2 Add New Link
+
+  = form_for @link do |f|
+    = render 'shared/error_messages', object: @link
+    .form-group
+      = f.label :url, title: 'URL', class: 'control-label'
+      = f.text_field :url, class: 'form-control'
+    .form-group
+      = f.label :description, class: 'control-label'
+      = f.text_field :description, class: 'form-control'
+    = f.submit 'Add Link', class: 'btn btn-default'
+

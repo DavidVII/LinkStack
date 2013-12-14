@@ -7,6 +7,7 @@ class StacksController < ApplicationController
 
   def show
     @stack = Stack.find(params[:id])
+    @link = Link.new
   end
 
   def new

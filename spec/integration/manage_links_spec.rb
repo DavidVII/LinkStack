@@ -12,8 +12,8 @@ feature 'Manage Links' do
     visit stack_path(@stack)
     expect(page).to have_content('Add New Link')
 
-    fill_in 'url', with: 'http://example.com'
-    fill_in 'description', with: 'Description example'
+    fill_in 'URL', with: 'http://example.com'
+    fill_in 'Description', with: 'Description example'
     click 'Save Link'
 
     expect(page).to have_link('http://example.com')
