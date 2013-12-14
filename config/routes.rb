@@ -3,6 +3,7 @@ Linkstack::Application.routes.draw do
   match 'about', to: 'pages#about', via: :get
 
   resources :stacks, only: [:new, :create, :show, :index, :destroy]
+  resources :links, only: [:new]
 
   root 'pages#index'
 end

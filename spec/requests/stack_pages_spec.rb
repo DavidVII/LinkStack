@@ -5,17 +5,15 @@ describe 'StackPages' do
 
   let(:user) { FactoryGirl.create(:user) }
 
-  before { sign_in user }
-
-  describe 'home page after user is signed in' do
-    before { visit root_path }
-    it { should have_link('New Stack', href: new_stack_path) }
-    it { should have_link('My Stacks', href: stacks_path) }
+  before do
+    sign_in(user)
+    @stack = FactoryGirl.create(:stack, user: user)
   end
 
-  describe 'stacks index page' do
-    before { visit stacks_path }
-    it { should have_content('Your Stacks') }
+  describe 'user stacks should be displayed' do
+    before { visit root_path }
+    it { should have_content("Your Stacks") }
+    it { should have_content(@stack.name) }
   end
 
   describe 'new stack page' do
@@ -31,7 +29,6 @@ describe 'StackPages' do
 
         expect(page).to have_content('Stack Name')
         expect(page).to have_content('Stack Description')
-        expect(page).to have_content(user.username)
       end
     end
   end
@@ -54,7 +51,7 @@ describe 'StackPages' do
       before { visit stacks_path }
 
       it 'should delete a stack' do
-        expect { click_link 'Delete' }.to change(Stack, :count).by(-1)
+        expect { first('.stack').click_link 'Delete' }.to change(Stack, :count).by(-1)
         expect(page).to have_content('deleted')
       end
     end
