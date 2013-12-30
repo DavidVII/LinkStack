@@ -6,3 +6,10 @@ def sign_in(user)
   fill_in "Password", with: user.password
   click_button "Sign in"
 end
+
+def create_stack
+  visit new_stack_path
+  fill_in 'Name', with: 'Stack Example'
+  fill_in 'Description', with: 'Stack Description'
+  click_button 'Create'
+end
