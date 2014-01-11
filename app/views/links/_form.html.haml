@@ -1,0 +1,9 @@
+= form_for [@stack, @link || @stack.links.build] do |f|
+  .form-group
+    = f.label :url, 'URL'
+    = f.text_field :url, class: 'form-control'
+  = f.label :description
+  = f.text_area :description, class: 'form-control'
+  = f.hidden_field :stack_id, value: @stack.id
+  %br
+  = f.submit 'Save', class: 'btn btn-primary'

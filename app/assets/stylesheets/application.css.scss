@@ -18,7 +18,8 @@ body {
   border-radius: 0;
 }
 
-.alert-alert {
+.alert-alert,
+.alert-error {
   @extend .alert-warning;
 }
 

@@ -1,4 +1,15 @@
 .container
-  %h1= @stack.name
-  %p= @stack.description
-  %p Owner: #{current_user.username}
+  .row
+    .col-md-3
+      = render 'links/form'
+    .col-md-9
+      %h1= @stack.name
+      %p= @stack.description
+      %p Owner: #{current_user.username}
+
+      .links-feed
+        - @stack.links.each do |link|
+          %h3
+            = link_to "#{link.url}", link.url
+          %p
+            = link.description
