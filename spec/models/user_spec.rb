@@ -51,6 +51,11 @@ describe User do
     it { should_not be_valid }
   end
 
+  describe "when a username has odd characters" do
+    before { @user.username = "user/name+" }
+    it { should_not be_valid }
+  end
+
   describe "when a username is already taken" do
     before do
       user_with_the_same_username = @user.dup
