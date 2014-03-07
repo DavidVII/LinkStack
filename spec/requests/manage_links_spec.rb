@@ -24,7 +24,6 @@ feature 'Manage Links' do
   end
 
   scenario 'delete a link' do
-
     fill_in('URL', with: 'http://google.com')
     fill_in('Description', with: 'Description example')
     click_button('Save')
@@ -36,5 +35,11 @@ feature 'Manage Links' do
     expect(page).to_not have_css("#link_#{Link.last}")
     expect(page).to have_content('deleted')
     expect(page).to have_css('h1.page-title', text: stack.name)
+  end
+
+  scenario 'adding a link without a URL' do
+    fill_in('Description', with: 'Description example')
+    click_button('Save')
+    expect(page).to have_content("URL's are required")
   end
 end

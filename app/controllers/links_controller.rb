@@ -6,7 +6,7 @@ class LinksController < ApplicationController
       flash[:success] = 'Your link has been added.'
       redirect_to stack_path(params[:stack_id])
     else
-      flash[:error] = @link.errors.full_messages
+      flash[:error] = @link.errors.full_messages.first
       redirect_to stack_path(params[:stack_id])
     end
   end
