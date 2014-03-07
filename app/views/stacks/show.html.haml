@@ -3,7 +3,7 @@
     .col-md-3
       = render 'links/form'
     .col-md-9
-      %h1= @stack.name
+      %h1.page-title= @stack.name
       %p= @stack.description
       %p Owner: #{current_user.username}
 
@@ -14,3 +14,5 @@
               = link_to "#{link.url}", link.url, target: "blank"
             %p
               = link.description
+
+            = link_to 'Delete', [@stack, link], method: :delete

@@ -11,6 +11,8 @@ feature 'Manage Links' do
     visit stack_path(Stack.last)
   end
 
+  let(:stack) { Stack.last }
+
   scenario 'create new link' do
     fill_in('URL', with: 'http://google.com')
     fill_in('Description', with: 'Description example')
@@ -22,12 +24,17 @@ feature 'Manage Links' do
   end
 
   scenario 'delete a link' do
+
     fill_in('URL', with: 'http://google.com')
     fill_in('Description', with: 'Description example')
     click_button('Save')
 
     within("#link_#{Link.last.id}") do
-      click_link('delete')
+      click_link('Delete')
     end
+
+    expect(page).to_not have_css("#link_#{Link.last}")
+    expect(page).to have_content('deleted')
+    expect(page).to have_css('h1.page-title', text: stack.name)
   end
 end
