@@ -9,7 +9,8 @@
 
       .links-feed
         - @stack.links.each do |link|
-          %h3
-            = link_to "#{link.url}", link.url
-          %p
-            = link.description
+          %div[link]
+            %h3
+              = link_to "#{link.url}", link.url, target: "blank"
+            %p
+              = link.description
