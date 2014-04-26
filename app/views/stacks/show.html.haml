@@ -1,5 +1,7 @@
 .container
   .row
+    .col-md-3
+      = render 'links/form'
     .col-md-9
       %h1.page-title= @stack.name
       %p= @stack.description
@@ -13,8 +15,8 @@
             %p
               = link.description
 
-            = link_to 'Delete', [@stack, link], method: :delete
+            = link_to 'Delete', [link.stack, link], method: :delete
+            %hr
 
-    .col-md-3
-      = render 'links/form'
+
 
